@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:SportskiCentarRS2.MobileApp.ViewModels"
+             x:Class="SportskiCentarRS2.MobileApp.Views.RegisterPage">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="CenterAndExpand">
+            <Label Text="Korisničko ime *"></Label>
+            <Entry Text="{Binding KorisnickoIme}"></Entry>
+            <Label Text="Lozinka *"></Label>
+            <Entry Text="{Binding Lozinka}" IsPassword="True"></Entry>
+            <Label Text="Potvrda lozinke *"></Label>
+            <Entry Text="{Binding PotvrdaLozinke}" IsPassword="true"></Entry>
+            <Label Text="Ime *"></Label>
+            <Entry Text="{Binding Ime}"></Entry>
+            <Label Text="Prezime *"></Label>
+            <Entry Text="{Binding Prezime}"></Entry>
+            <Label Text="Email *"></Label>
+            <Entry Text="{Binding Email}"></Entry>
+            <Label Text="Broj telefona *"></Label>
+            <Entry Text="{Binding BrojTelefona}"></Entry>
+            <Label Text="Datum rođenja"></Label>
+            <DatePicker Date="{Binding DatumRodjenja}" VerticalOptions="Center"></DatePicker>
+            <Label Text="JMBG"></Label>
+            <Entry Text="{Binding JMBG}"></Entry>
+            <Label Text="Polja označena sa * su obavezna" />
+            <Button Text="Registruj se" Command="{Binding RegisterCommand}"/>
+            <Label Text="Već imaš nalog?" />
+            <Button Text="Nazad na prijavu" Command="{Binding LoginCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

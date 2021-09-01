@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SportskiCentarRS2.MobileApp.ViewModels" 
+             xmlns:converters="clr-namespace:SportskiCentarRS2.MobileApp.Converters" 
+             
+             x:Class="SportskiCentarRS2.MobileApp.Views.ProstorijaDetailsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label Text="Prostorija" FontSize="Large" />
+                </StackLayout>
+                <StackLayout>
+                    <Image Source="{Binding Prostorija.Slika, Converter={StaticResource imgConv}}" HeightRequest="200" WidthRequest="200"></Image>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label Text="Naziv: "></Label>
+                    <Label Text="{Binding Prostorija.Naziv}"></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label Text="Veličina: "></Label>
+                    <Label Text="{Binding Prostorija.Velicina}"></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label Text="Prosječna ocjena: "></Label>
+                    <Label Text="{Binding Prostorija.ProsjecnaOcjenaString}"></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                    <Label Text="Oprema na raspolaganju: " HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="150,10">
+                        <ListView ItemsSource="{Binding Prostorija.Oprema}" IsEnabled="False" >
+                            <ListView.ItemTemplate >
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label Text="{Binding Naziv}"/>
+                                            <Label Text="X" />
+                                            <Label Text="{Binding NaStanju}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:SportskiCentarRS2.MobileApp.ViewModels" x:DataType="vm:RezervacijaDetailsViewModel"
+             x:Class="SportskiCentarRS2.MobileApp.Views.RezervacijaDetailsPage">
+    <ContentPage.Content>
+        <StackLayout Padding="0,0,0,0" VerticalOptions="CenterAndExpand" >
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="Rezervacija" FontSize="Large" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Prostorija: "></Label>
+                    <Label Text="{Binding Rezervacija.Prostorija}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Termin: "></Label>
+                    <Label Text="{Binding Rezervacija.Termin}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Cijena: "></Label>
+                    <Label Text="{Binding Rezervacija.CijenaString}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Odobrena: "></Label>
+                    <CheckBox IsChecked="{Binding Rezervacija.Odobrena}" IsEnabled="False"></CheckBox>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Uplaćena: "></Label>
+                    <CheckBox IsChecked="{Binding Rezervacija.Uplaceno}" IsEnabled="False"></CheckBox>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Margin="50,0">
+                <Button Text="Uplati"  Command="{Binding UplatiCommand}"/>
+            </StackLayout>
+            <StackLayout Margin="50,0" IsVisible="{Binding Rezervacija.Uplaceno}">
+                <Button Text="Ocijeni" Command="{Binding OcijeniCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

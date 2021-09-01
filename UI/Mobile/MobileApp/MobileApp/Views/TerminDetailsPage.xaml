@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:SportskiCentarRS2.MobileApp.ViewModels" x:DataType="vm:TerminDetailsViewModel"
+             x:Class="SportskiCentarRS2.MobileApp.Views.TerminDetailsPage">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="0,0,0,0" VerticalOptions="CenterAndExpand" >
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="Termin" FontSize="Large" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Prostorija: "></Label>
+                    <Label Text="{Binding Termin.Prostorija}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Početak: "></Label>
+                    <Label Text="{Binding Termin.Pocetak}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Kraj: "></Label>
+                    <Label Text="{Binding Termin.Kraj}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Cijena: "></Label>
+                    <Label Text="{Binding Termin.Cijena}"></Label>
+                    <Label Text=" KM"></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Margin="50,0">
+                <Button Text="Rezerviši"  Command="{Binding RezervisiCommand}"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
